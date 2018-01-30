@@ -1,0 +1,2 @@
+出现Error opening registry key software\Javasoft\Java Runtime Environmen,
+解决方案是删除C:\Windows\System32文件夹下的java.exe, javaw.exe 和 javaws.exe文件。

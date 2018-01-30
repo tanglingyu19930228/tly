@@ -1,0 +1,21 @@
+1.sqlite3默认插入数据是开启事物然后提交所以当执行很多条insert into语句时加上begin transaction commit会大大加快速度
+2.hibernate中的hql语句是区分大小写的
+3.数据库认识:""和''是一样的都代表空串存在的时候什么都没存但是存在空字符串对象
+  如果存的是null那么存的就是空对象 ,""和" "后者存了一个空格(虽然在数据库查询的时候看不到)
+4.各大数据库会出现select * from table in();注意()内的东西不能超过1000个否则会报异常(处理方法分批次查询)
+   伪代码实现如下:
+   List<Object> a=new Arraylist<Object>();
+   if(idArr.size()>500){
+ArrayList<String> newArr=new ArrayList<String>();
+for(int x=0;x<idArr.size();x++){
+newArr.add(idArr.get(x));
+if((x+1)%500==0||x==idArr.size()-1){
+a.addAll(someService.getData(newArr));
+}
+}
+}
+其中idArr是传过来的List集合
+
+5.dos命令下利用sqlite3.exe 创建数据库文件如果只是创建了数据库没有创建表则不会看到数据库文件(注意创建table的时候加个;号不然也不会出来)
+
+

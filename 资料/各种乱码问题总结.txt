@@ -1,0 +1,7 @@
+﻿http://blog.csdn.net/e_yohn/article/details/6703322
+服务器/conf目录/server.xml文件
+将相关语句改为：
+<Connector port="8008" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443"  URIEncoding="UTF-8"/>
+之前的语句没有URIEncoding="UTF-8"这一句

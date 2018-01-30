@@ -1,0 +1,1 @@
+1.在setclasspath.bat的首行添加set JAVA_HOME= 和set JRE_HOME=

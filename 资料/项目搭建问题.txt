@@ -1,0 +1,3 @@
+1.传统的ssm框架搭建过程中如果一直出现jdbc的连接错误的话可以去检查下jdbc的属性文件后面是否
+有空格并且保存格式是否为utf-8
+2.如果出现java.lang.zip.zipexception并且还是maven项目的话可以对整个项目进行run as maven test

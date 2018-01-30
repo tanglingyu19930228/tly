@@ -1,0 +1,15 @@
+Tomcat目录下各个文件夹的作用
+了解一下Tomcat下的各个文件夹的作用是还有必要的，它能帮助我们更好的理解Tomcat的作用。 
+下面是Tomcat目录下各个文件夹的截图 
+这里写图片描述
+各个文件夹的作用： 
+1、bin：存放各种不同平台开启与关闭Tomcat的脚本文件。
+2、lib：存tomcat与web应用的Jar包
+3、conf：存放tomcat的配置文件
+4、webapps：web应用的发布目录 
+webapps是特别要注意的地方。webapps文件夹是部署项目的地方，tomcat启动时，加载webapps文件夹下的项目。但有时候我们在Tomcat的目录下找不到webapps，发现所有的项目在一个叫wtpwebapps的文件夹中，wtpwebapps跟webapps差不多，都是存放编译后的项目。eclipse默认路径是wtpwebapps，因为一些项目需求，可能需要改到webapps下面。可以看看下面的链接，修改eclipse下tomcat部署路径 
+http://blog.csdn.net/yuan16423276/article/details/37502705
+这个要在tomcat中修改。 
+5、work：tomcat把由各种jsp生成的servlet文件存放的地方
+6、logs：tomcat存放日志文件的地方
+7、temp：tomcat存放临时文件的地方
