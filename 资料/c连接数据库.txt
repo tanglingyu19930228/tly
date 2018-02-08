@@ -1,0 +1,5 @@
+1.如果机器是64位需要右键项目-->属性-->平台变成x64 并且配置管理器-->平台变成x64  活动解决方案平台可以不变(最好变成x64)
+2.头文件要#include<mysql.h>
+3.需要右键项目-->属性-->vc++目录-->包含目录(mysql安装包下面的include文件夹)并且库目录(mysql安装包下面的lib文件夹)
+4.需要在项目的源文件添加mysql文件夹下面的lib文件夹下面的libmysql.lib
+5.需要把C:\Program Files\MySQL\MySQL Server 5.7\lib下面的libmysql.dll复制到C:\Windows\System32

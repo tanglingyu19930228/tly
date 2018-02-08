@@ -1,0 +1,3 @@
+错误描述:Version of Spring Facet could not be detected.
+解决办法:修改project fact与java compiler 一致
+

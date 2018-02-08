@@ -1,0 +1,13 @@
+1.监听器Listener就是在application,session,request三个对象创建,销毁或者往其中添加修改删除属性时自动执行代码的功能组件
+2.Listener是Servlet的监听器,可以监听客户端的请求,服务端的操作等
+3.Listener的分类与使用
+  ServletContextListener:用于对Servlet整个上下文进行监听(创建,销毁)
+  ServletContextAttributeListener:对Servlet上下文属性的监听(增删改属性)
+  HttpSessionListener接口:对Session的整体状态的监听
+  HttpSessionAttributeListener接口:对session的属性监听
+  ServletRequestListener：用于对Request请求进行监听(创建、销毁)
+  ServletRequestAttributeListener:对Request属性的监听(增删改属性)
+4.Spring使用ContextLoaderListener加载配置文件配置信息 
+5.Spring使用Log4jConfigListener配置Log4j日志
+6.Spring使用IntrospectorCleanupListener清理缓存
+7.过滤器可以简单的理解为"取你所想取",过滤器关注的是web请求；拦截器可以简单的理解为"拒你所想拒",拦截器关注的是方法调用

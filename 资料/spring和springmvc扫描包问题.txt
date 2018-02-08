@@ -1,0 +1,3 @@
+1.spring和springmvc容器是父子容器的关系，spring是父容器 springmvc是子容器
+2.父容器不能访问子容器的对象,子容器能访问父容器中的对象
+

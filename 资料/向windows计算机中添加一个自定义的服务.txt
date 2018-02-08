@@ -1,0 +1,6 @@
+dos命令sc:
+向注册表中添加一个服务:
+sc create ServiceName(服务名称自定义) binPath= (注意=号后面的空格必须要有)(自己服务的路径) start= (这里的空格也是必须的)auto
+删除一个服务:
+sc delete ServiceName 
+

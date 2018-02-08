@@ -1,0 +1,24 @@
+1.Spring中用@Configuration注解来配置bean格式如下:
+  package com.tly01;
+  import org.springframework.context.annotation.Bean;
+  import org.springframework.context.annotation.Configuration;
+  @Configuration
+  public class TlyConfiguration{
+    @Bean
+    public Sb sb(){
+      Sb ss=new Sb();
+      return ss;
+    }
+    @Bean
+    public Log log(){
+      Log t=new Log();
+      return t;
+    }
+  }
+   如果要获取Sb的对象具体操作是:获取spring配置上下文对象.getBean("sb") 
+ [注意这里的sb对应配置类里面的方法名]
+2.aop编程中需要注意:
+  <aop:aspect ref="log">这里注意ref关联的是你对应的切面类
+  (只不过这里是用的@Configuration来获取的)
+  </aop:aspect>
+  

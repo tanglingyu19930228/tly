@@ -1,0 +1,17 @@
+1.truncate数据恢复
+show binary logs 如果出现 1381 You are not using binary logging
+继续show variables like 'log_bin'
+接着:
+在mysql的安装文件下打开mysql 的配置文件my.ini
+在mysqld配置项下面加上log_bin=mysql_bin
+然后:
+重新启动mysql服务就可以了
+ 
+常用日志命令(运行sql语句)
+show variables like 'log_bin'
+show binary logs;
+show binlog events in 'mysql_bin.000003';
+show master logs;
+show master status;
+flush logs;
+show variables like '%datadir%';

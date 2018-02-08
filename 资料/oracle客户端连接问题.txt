@@ -1,0 +1,37 @@
+本机不安装Oracle客户端，使用PL/SQL Developer连接远程数据库可能出现的问题解决办法(64位操作系统)
+1、先到Oracle网站下载Instant Client :
+http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html
+根据你的操作系统选择不同的Instant Client版本
+下载会是一个压缩文件,解压之后的文件夹叫:instantclient_12_1.放在你喜欢的目录即可.例如:E:\Program Files\PLSQL Developer\instantclient_12_1
+2、在E:\Program Files\PLSQL Developer\instantclient_12_1目录下新建目录network,在network目录下再新建admin目录,在admin目录下新建文件tnsnames.ora,
+使用文本编辑器打开写入如下内容:
+连接名 =
+(DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.0.132 )(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = ORCL )
+    )
+)
+第一个黄色字块：表示定义远程服务器的在本地主机名（随意输入）
+第二个黄色字块：远程数据库的IP地址
+第三个黄色子块：远程数据库实例名
+右击我的电脑选”属性”->“高级”->“环境变量”->”系统变量”
+新增下面两个变量
+TNS_ADMIN 　　　E:\Program Files\PLSQL Developer\instantclient_12_1\network\admin
+NLS_LANG 　　　SIMPLIFIED CHINESE_CHINA.ZHS16GBK
+5、下载并安装PL.SQL.Developer配置应用
+配置tools->preferences->connection
+Oracle Home
+E:\Program Files\PLSQL Developer\instantclient_12_1
+OCI library
+E:\Program Files\PLSQL Developer\instantclient_12_1\oci.dll
+中文的PL/SQL Developer就是
+工具-->首选项-->连接
+Oracle主目录
+E:\Program Files\PLSQL Developer\instantclient_12_1
+OCI库
+E:\Program Files\PLSQL Developer\instantclient_12_1\oci.dll
+6、关闭PL/SQL Developer,重起Developer.
+主机名就会出现在PL/SQL Developer的列表里，输入用户名密码，就可以登录远程oracle 11g数据库了。

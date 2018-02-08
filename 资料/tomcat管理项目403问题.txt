@@ -1,0 +1,3 @@
+身份验证加入这句话
+<role rolename="manager-gui"/>
+<user username="admin" password="admin" roles="admin,manager-gui"/>

@@ -1,0 +1,6 @@
+1.为了能够在建立包的时候准确地区分包之间的层次关系推荐如下步骤:
+建立base-package(父类包名)比如com.tly01然后在com.tly01下建立一个class同时指定这个class对应的子包名(比如com.tly01.controller)
+注意此时会看到com.tly01.controller包下的class但是原来的com.tly01父包不见了
+接着只需要再在com.tly01.controller包下建立一个class并且指定这个class对应的新包名(比如com.tly01.service)
+此时包的层级关系就会一清二楚
+这样做的好处是避免项目环境搭建过程中扫描不到包这样的错误

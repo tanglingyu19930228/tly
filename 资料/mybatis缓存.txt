@@ -1,0 +1,9 @@
+1.一级缓存时sqlsession级别的缓存(也就是会话级别的缓存)
+如果session.close()或者session.clear()后一级缓存就会失效,一级缓存默认是开启的
+2.二级缓存时namespace级别的缓存也就是mapper级别的缓存
+3.二级缓存需要在配置mybatis配置文件<configuration>标签下加上
+<settings>
+<setting name="cacheEnabled" value="true"/>
+</settings>
+并且在mapper.xml下面加<cache>标签还要在具体需要用到的二级缓存方法上加useCache="true"属性
+4.执行相同查询的sql语句流程变成 二级缓存-->一级缓存-->数据库

@@ -1,0 +1,27 @@
+1.读脏(一个事物读取到另外一个事物没有提交的数据) 比如:A事物对数据库里面的金钱第一次读取为1000,然后B事物对数据库金钱
+     进行update操作让金钱变成500(此时B事物没有commit)这时A事物再次对数据库进行读取操作就会读取到B事物没有提交的数据
+     也就是500;
+2.可重复读(一个事物可以读取另一个事物提交的数据) 比如:A事物对数据库里面的金钱第一次读取为1000,然后B事物对数据库金钱
+     进行update操作让金钱变成500
+  (如果此时B事物没有commit那么在这个级别A再次读取还是1000如果此时B事物commit那么A再次读取就会变成500)
+3.不可重复读(幻影重读) 比如:A事物对数据库里面的金钱第一次读取为1000,然后B事物对数据库金钱
+     进行update操作让金钱变成500
+  (如果此时B事物没有commit那么在这个级别A再次读取还是1000如果此时B事物commit了A事物还没有提交那么A读取到的还是1000如果此时A进行commit那么C事物读取数据库会变成500)   
+4.序列化
+5.oracle默认隔离级别为可重复读
+6.mysql默认隔级别为不可重复读
+7.sqlite3默认隔离级别为序列化
+8.MYSQL5.7以下版本的数据库密码使用的是
+mysql这个数据库里的user表的password这个字段，
+修改密码只需：
+1.update MySQL.user set password=password('root') where user='root' ;
+2.flush privileges;
+可是到了5.7版本，user表里就没有了password这个字段了，
+要想修改密码则需要用authentication_string这个字段：
+1.update MySQL.user set 
+authentication_string=password('root') where user='root';
+2.flush privileges;
+
+
+
+

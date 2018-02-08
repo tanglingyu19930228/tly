@@ -1,0 +1,4 @@
+1.如果url写成jdbc:sqlite::resource:SqliteDb/sb.db3这种形式则表示sqlite3数据库文件sb.db3放在项目的类路径下的SqliteDb
+  资源包下面
+2.绝对路径就不多解释了
+3.如果写成jdbc:sqlite:sb.db3那么sb.db3会出现在tomcat的bin目录下面(很诡异)
