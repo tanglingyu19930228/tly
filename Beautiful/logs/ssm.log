@@ -1,0 +1,7 @@
+[INFO] [2018-01-30 11:13:48][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7530ad9c: startup date [Tue Jan 30 11:13:48 CST 2018]; root of context hierarchy
+  [INFO] [2018-01-30 11:13:48][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-01-30 11:13:49][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2018-01-30 11:15:52][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6ad82709: startup date [Tue Jan 30 11:15:52 CST 2018]; root of context hierarchy
+  [INFO] [2018-01-30 11:15:52][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2018-01-30 11:15:53][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  

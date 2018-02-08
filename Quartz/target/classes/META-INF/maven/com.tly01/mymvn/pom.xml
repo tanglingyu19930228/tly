@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tly01</groupId>
+	<artifactId>mymvn</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<finalName>mymvn</finalName>
+		<plugins>
+			<!-- 第一种方式: apache官方tomcat插件,支持deploy -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:9090/manager/text</url>
+					<username>admin</username>
+					<password>admin</password>
+					<update>true</update>
+					<path>/</path>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<repositories>
+
+		<repository>
+
+			<id>people.apache.snapshots</id>
+
+			<url> 
+
+        http://repository.apache.org/content/groups/snapshots-group/ 
+
+    </url>
+
+			<releases>
+
+				<enabled>false</enabled>
+
+			</releases>
+
+			<snapshots>
+
+				<enabled>true</enabled>
+
+			</snapshots>
+
+		</repository>
+
+	</repositories>
+
+
+
+	<pluginRepositories>
+
+		<pluginRepository>
+
+			<id>apache.snapshots</id>
+
+			<name>Apache Snapshots</name>
+
+			<url> 
+
+        http://repository.apache.org/content/groups/snapshots-group/ 
+
+    </url>
+
+			<releases>
+
+				<enabled>false</enabled>
+
+			</releases>
+
+			<snapshots>
+
+				<enabled>true</enabled>
+
+			</snapshots>
+
+		</pluginRepository>
+
+	</pluginRepositories>
+	<properties>    
+        <springframework.version>4.1.3.RELEASE</springframework.version><!-- Spring的版本 -->   
+        <quartz.version>2.2.1</quartz.version>                          <!-- Quartz的版本 -->   
+    </properties>  
+	<dependencies>
+	<dependency>    
+            <groupId>org.springframework</groupId>    
+            <artifactId>spring-core</artifactId>    
+            <version>${springframework.version}</version>    
+        </dependency>    
+        <dependency>    
+            <groupId>org.springframework</groupId>    
+            <artifactId>spring-context-support</artifactId>    
+            <version>${springframework.version}</version>    
+        </dependency>    
+        <!-- Spring事务的依赖 -->    
+        <dependency>    
+            <groupId>org.springframework</groupId>    
+            <artifactId>spring-tx</artifactId>    
+            <version>${springframework.version}</version>    
+        </dependency>    
+            
+        <!-- 定时任务框架Quartz的依赖-->    
+        <dependency>    
+            <groupId>org.quartz-scheduler</groupId>    
+            <artifactId>quartz</artifactId>    
+            <version>${quartz.version}</version>    
+        </dependency>    
+	</dependencies>
+</project>
