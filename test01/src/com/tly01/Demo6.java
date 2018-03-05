@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
- * lambda表达式用法
+ * lambda表达式用法(主要是简化代码)
  * @author Administrator
  *
  */
