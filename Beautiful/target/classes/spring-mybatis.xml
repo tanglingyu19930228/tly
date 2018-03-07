@@ -47,7 +47,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
         <property name="dataSource" ref="dataSource" />  
         <!-- 自动扫描mapping.xml文件 -->  
-        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>  
+        <property name="mapperLocations" value="classpath:mapper/src/main/resources/*.xml"></property>  
     </bean>  
   
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
@@ -90,4 +90,6 @@
     <aop:config>
     	<aop:advisor advice-ref="advice" pointcut="execution(* com.tly01.service.impl.*.*(..))"/>
     </aop:config>
+    
+    <import resource="classpath:generatorConfig.xml"></import>
 </beans> 
