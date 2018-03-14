@@ -1,1 +1,2 @@
 1.打开任务计划程序(taskschd.msc)
+2.如果在控制面板卸载chrome后还是啊不能彻底删除(一般来说是注册表没有删除干净)在HKRY_CURRENT_USER\Software\Google全部,如果是64  位机器还需要删除HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Google(亲自测试有效)
