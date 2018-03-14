@@ -1,0 +1,214 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+	int data;
+	struct node *prior, *next;
+}Node, *Link;
+
+void is_malloc_ok(Link head)
+{
+	if (head == NULL)
+	{
+		printf("malloc is error!\n");
+		exit(-1);
+	}
+}
+
+/*创建链表*/
+void create_link(Link * head)
+{
+	*head = (Link)malloc(sizeof(Node));
+
+	is_malloc_ok(*head);
+
+	(*head)->next = (*head)->prior = *head;//让其指向自己
+}
+
+/*创建节点*/
+void create_node(Link * new_node)
+{
+	*new_node = (Link)malloc(sizeof(Node));
+	is_malloc_ok(*new_node);
+}
+
+/*插入节点(头插)*/
+void insert_node_head(Link head, Link new_node)
+{
+	new_node->prior = head;
+	new_node->next = (head)->next;
+	(head)->next->prior = new_node;
+	(head)->next = new_node;
+}
+
+
+/*插入节点(尾插)*/  
+void insert_node(Link * head, Link new_node)
+{
+	Link p = NULL;
+
+	p = *head;
+	while (p->next != *head)
+	{
+		p = p->next;
+	}
+
+	new_node->prior = p;
+	new_node->next = p->next;
+	p->next->prior = new_node;
+	p->next = new_node;
+}
+
+/*输出链表*/
+void out_link(Link head)
+{
+	Link p = NULL;
+#if 0
+	if (head->next == head)
+	{
+		printf("link is empty\n");
+		return;
+	}
+#endif
+
+	if (head == NULL)
+	{
+		printf("link is empty\n");
+		return;
+	}
+
+	p = (head)->next;
+
+	while (p != head)
+	{
+		printf("%d\n", p->data);
+		p = p->next;
+	}
+	putchar(10);
+}
+
+/*变成空链*/
+void make_empty(Link * head)
+{
+	Link p = NULL;
+
+	p = (*head)->next;
+
+	while (*head != (*head)->next)
+	{
+		(*head)->next = p->next;//head移动
+		free(p);//释放head之前的节点
+		p = (*head)->next;
+	}
+}
+
+/*释放链表*/
+void release_link(Link * head)
+{
+	make_empty(head);
+
+	free(*head);
+
+	*head = NULL;
+}
+
+/*删除节点*/
+void delete_node(Link * head, int data)
+{
+	Link p = NULL;
+
+	p = (*head)->next;
+
+	if (p == *head)//空链
+	{
+		printf("link is empty!\n");
+		return;
+	}
+
+	/*非空链*/
+	while (p != *head && p->data != data)
+	{
+		p = p->next;//找那个节点
+	}
+
+	if (p == *head)//找一圈没找到
+	{
+		printf("No such node!\n");
+		return;
+	}
+	else//找到并改变指向
+	{
+		p->prior->next = p->next;
+		p->next->prior = p->prior;
+
+		free(p);
+	}
+}
+
+void insert_node_seq(Link * head, Link new_node)
+{
+	Link p = NULL;
+
+	p = (*head);
+
+	while (p->next != *head && new_node->data < p->next->data)//找到该位置的前一个位置
+	{
+		p = p->next;
+	}
+#if 0
+	if (p == *head)//找到尾部
+	{
+		new_node->prior = p->prior;
+		new_node->next = p;
+		p->prior->next = new_node;
+		p->prior = new_node;
+		return;
+	}
+#endif
+	new_node->prior = p;
+	new_node->next = p->next;
+	p->next->prior = new_node;
+	p->next = new_node;
+
+}
+
+int main()
+{
+	int i;
+	Link head = NULL;
+	Link new_node = NULL;
+	create_link(&head);
+
+	out_link(head);
+
+	for (i = 0; i < 10; i++)
+	{
+		create_node(&new_node);
+		new_node->data = i + 1;
+		//    insert_node(&head, new_node);
+		insert_node_head(head, new_node);
+	}
+
+	out_link(head);
+
+#if 1
+	printf("please input i\n");
+	scanf_s("%d", &i);
+	putchar(10);
+	create_node(&new_node);
+	new_node->data = i;
+	insert_node_seq(&head, new_node);
+	out_link(head);
+#endif
+
+#if 0
+	delete_node(&head, 2);
+	out_link(head);
+#endif
+	release_link(&head);
+	out_link(head);
+	system("pause");
+	return 0;
+}

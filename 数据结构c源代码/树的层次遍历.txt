@@ -1,0 +1,146 @@
+#include<stdio.h>
+#include<stdlib.h>
+//二叉链表类型定义
+typedef struct btnode {
+	char data;
+	struct btnode*lchild, *rchild;
+}bitree,*Bitree;
+//链队列类型定义
+typedef struct LinkQueueNode {
+	bitree *data;
+	struct LinkQueueNode *next;
+}LKQueNode;
+typedef struct LKQueue {
+	LKQueNode *front, *rear;
+}LKQue;
+//初始化队列
+void InitQueue(LKQue *LQ) {
+	LKQueNode *p;
+	p = (LKQueNode*)malloc(sizeof(LKQueNode));
+	LQ->front = p;
+	LQ->rear = p;
+	LQ->front->next = NULL;
+}
+//判断队列是否为空
+int EmptyQueue(LKQue *LQ)
+{
+	if (LQ->front == LQ->rear)
+		return 1;
+	else
+		return 0;
+}
+//入队列
+void EnQueue(LKQue *LQ, Bitree x)
+{
+	LKQueNode *p;
+	p = (LKQueNode*)malloc(sizeof(LKQueNode));
+	p->data = x;
+	p->next = NULL;
+	LQ->rear->next = p;
+	LQ->rear = p;
+}
+//出队列
+int OutQueue(LKQue *LQ)
+{
+	LKQueNode *s;
+	if (EmptyQueue(LQ))
+	{
+		exit(0);
+		return 0;
+	}
+	else
+	{
+		s = LQ->front->next;
+		LQ->front->next = s->next;
+		if (s->next == NULL)
+			LQ->rear = LQ->front;
+		free(s);
+		return 1;
+	}
+}
+//取队列首元素
+Bitree GetHead(LKQue *LQ)
+{
+	LKQueNode *p;
+	bitree *q=nullptr;
+	if (EmptyQueue(LQ))
+		return q;
+	else
+	{
+		p = LQ->front->next;
+		return p->data;
+	}
+}
+//建二叉树
+Bitree Initiate()
+{
+	char ch;
+	Bitree t;
+	ch = getchar();
+	if (ch == '#')
+		t = NULL;
+	else
+	{
+		t = (Bitree)malloc(sizeof(bitree));
+		t->data = ch;
+		t->lchild = Initiate();
+		t->rchild = Initiate();
+	}
+	return t;
+}
+//访问节点
+void Visit(Bitree p)
+{
+	printf("%c", p->data); //输出是char
+}
+
+
+//树的高度
+int height(Bitree t)
+{
+	int ld, rd;
+	if (t == NULL)
+		return 0;
+	else
+	{
+		ld = height(t->lchild);
+		rd = height(t->rchild);
+		return 1 + (ld>rd ? ld : rd);
+	}
+}
+
+//层次遍历 
+void LevelOrder(Bitree bt)
+{
+	LKQue Q;
+	Bitree p;
+	InitQueue(&Q);
+	if (bt != NULL)
+	{
+		EnQueue(&Q, bt);
+		while (!EmptyQueue(&Q))
+		{
+			p = GetHead(&Q);
+			OutQueue(&Q);
+			Visit(p);
+			if (p->lchild != NULL)
+				EnQueue(&Q, p->lchild);
+			if (p->rchild != NULL)
+				EnQueue(&Q, p->rchild);
+		}
+	}
+}
+
+
+int main()
+{
+	Bitree T;
+	printf("\n按先序序列输入结点序列，'#'代表空:");
+	T = Initiate();
+	printf("\n二叉树的高度为:%d\n", height(T));
+	printf("\n层次遍历序列为:");
+	LevelOrder(T);
+	printf("\n\n");
+	system("pause");
+}
+

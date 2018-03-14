@@ -1,0 +1,167 @@
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct _DNode {
+	int data;
+	struct _DNode *pre;
+	struct _DNode *next;
+}DNode,*DList;
+// 初始化头结点
+void InitList(DList plist) {
+	if (NULL == plist)
+		return;
+	plist->next = NULL;
+	plist->pre = NULL;
+}
+//申请一个链表节点
+DNode *BuyNode(int val) {
+	DNode *pTmp = (DNode*)malloc(sizeof(DNode));
+	pTmp->data = val;
+	pTmp->next = NULL;
+	pTmp->pre = NULL;
+	return pTmp;
+}
+//链表头插法
+void InsertHead(DList plist, int val) {
+	//申请一个新的节点
+	DNode * pTmp = BuyNode(val);
+	pTmp->next = plist->next;
+	pTmp->pre = plist;
+	//这里的判断一定不能少,可以试想去掉这个会发生什么
+	if (NULL != pTmp->next) {
+		pTmp->next->pre = pTmp;
+	}
+	plist->next = pTmp;
+}
+
+//链表尾插法
+void InsertTail(DList plist, int val)
+{
+	DNode* pTmp = BuyNode(val);
+	DNode* pCur = plist;
+	while (NULL != pCur->next)
+	{
+		pCur = pCur->next;
+	}
+	pTmp->pre = pCur;
+	pCur->next = pTmp;
+}
+
+//获取链表长度
+int GetListLen(DList plist)
+{
+	DNode* pTmp = plist->next;
+	int iCount = 0;
+	while (NULL != pTmp)
+	{
+		++iCount;
+		pTmp = pTmp->next;
+	}
+	return iCount;
+}
+// 删除链表节点
+bool Delete(DList plist, int key)
+{
+	DNode* pPre = plist;        //前驱结点  
+	DNode* pCur = plist->next;   //后继节点  
+	while (NULL != pCur)
+	{
+		if (pCur->data == key)
+		{
+			if (NULL != pCur->next)      //这涉及到删除最后一个节点，因为对于最后一个节点来说pCur->next为空，也即pCur->next没有pre  
+			{
+				pCur->next->pre = pCur->pre;
+			}
+			pCur->pre->next = pCur->next;
+			return true;
+		}
+		else
+		{
+			pPre = pCur;
+			pCur = pCur->next;
+		}
+	}
+	return false;
+}
+// 查找指定值得节点
+DNode* Search(DList plist, int key)
+{
+	DNode* pCur = plist->next;
+	while (NULL != pCur)
+	{
+		if (pCur->data == key)
+		{
+			return pCur;
+		}
+		pCur = pCur->next;
+	}
+	return NULL;
+}
+//销毁链表
+void Destroy(DList plist)
+{
+	DNode* pTmp = plist->next;//这里必须从plist->next开始释放内存，原因有两个  
+	while (NULL != pTmp)      //一是头结点不是由malloc开辟的，不能有free释放  
+	{             //二是一个空链表是指只有头结点的链表，销毁操作就是把原链表置为空链表  
+		plist = pTmp->next;
+		free(pTmp);
+		pTmp = plist;
+	}
+}
+//输出链表
+void ShowDList(DList plist)
+{
+	DNode* pCur = plist->next;
+	while (NULL != pCur)
+	{
+		printf("%5d", pCur->data);
+		pCur = pCur->next;
+	}
+	printf("\n");
+}
+int main()
+{
+	DNode head;
+	InitList(&head);
+	for (int i = 1; i < 5; ++i)
+	{
+		InsertHead(&head, i);
+	}
+	ShowDList(&head);
+	printf("DList length is %d \n", GetListLen(&head));
+	for (int i = 6; i < 10; ++i)
+	{
+		InsertTail(&head, i);
+	}
+	ShowDList(&head);
+	printf("DList length is %d \n", GetListLen(&head));
+
+
+	printf("search 第一个节点4:");
+	DNode* pTmp = Search(&head, 4);
+	printf("%d\n", pTmp->data);
+	printf("search 最后一个节点9:");
+	pTmp = Search(&head, 9);
+	printf("%d\n", pTmp->data);
+
+
+	printf("删除第一个节点4:\n");
+	if (Delete(&head, 4))
+	{
+		ShowDList(&head);
+	}
+	else
+	{
+		printf("Not Fount!!!\n");
+	}
+	printf("删除最后一个节点9:\n");
+	if (Delete(&head, 9))
+	{
+		ShowDList(&head);
+	}
+	else
+	{
+		printf("Not Fount!!!\n");
+	}
+	Destroy(&head);     //销毁链表  
+	return 0;
+}
