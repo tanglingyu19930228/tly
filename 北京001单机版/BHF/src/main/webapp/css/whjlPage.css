@@ -1,0 +1,23 @@
+/*分页*/
+.whjlPage{float: right;margin: 20px 0;color: #5b5b5b;font-size: 0.9em;}
+.whjlP_num,.whjlP_skip{float: left;}
+.whjlP_skip em,.whjlP_skip input{float: left;height:26px;line-height: 26px;padding:0 4px;font-style: normal;}
+.whjlP_skip input{width: 20px;height:26px;text-align: center;background-color: transparent;}
+.whjlP_num a{float: left;height: 26px;line-height: 26px;padding: 0 10px;margin-right: 5px;border: 1px solid #ddd;color: #5b5b5b;cursor:pointer;cursor:hand;}
+.whjlP_num a.active{border: 1px solid #edeeec;background:#98cae9;cursor: default;color: #fff;}
+.whjlP_num a:hover{border: 1px solid #edeeec;}
+.whjlP_num span{height:26px;line-height:26px;padding:0 8px;float:left;margin-right: 5px;border: 1px solid #ddd;}
+.whjlP_num span.dot{border:none;}
+.whjlP_num .whjlPagePrev{position:relative;padding-left:18px;margin-right: 12px;cursor:pointer;cursor:hand;}
+.whjlP_num .whjlPageNext{position:relative;padding-right:18px;margin-left: 7px;cursor:pointer;cursor:hand;}
+.whjlP_num .arr{position:absolute;width: 6px;height: 6px;border-top:2px solid #6d6d6d;border-right:2px solid #6d6d6d;top:9px;}
+.whjlP_num .whjlPagePrev .arr{left:8px;-webkit-transform: rotate(-135deg);-moz-transform: rotate(-135deg);-o-transform: rotate(-135deg);-ms-transform: rotate(-135deg);transform: rotate(-135deg);}
+.whjlP_num .whjlPageNext .arr{right:7px;-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-o-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);}
+.whjlP_num .whjlPagePrev:hover,.whjlP_num .whjlPageNext:hover{color: #8ab766;}
+.whjlP_num .whjlPageNext:hover b,.whjlP_num .whjlPagePrev:hover b{border-color: #8ab766;}
+.whjlP_num .whjlPagePrev.disabled,.whjlP_num .whjlPageNext.disabled{color: #5b5b5b;cursor: default;background: #edeeec;border-color: #dadada;color: #5b5b5b;}
+.whjlP_num .disabled b{border-color:#9e9e9e;}
+.whjlP_num span.disabled:hover{border:1px solid #5fa4ce;}
+.whjlP_num span.disabled:hover b{border-color:#5fa4ce;}
+.whjlP_skip a{border:1px solid #ddd;color: #5b5b5b;padding: 0 16px;height: 26px;line-height: 26px;float: left;background-color: #e3e3e3;}
+.whjlP_skip a:hover{background: #98cae9;color:#fff;}

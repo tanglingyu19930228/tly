@@ -1,0 +1,14 @@
+/*基础公共样式*/
+*{ margin: 0; padding: 0;resize: none;outline: 0;border: 0;text-decoration: none;}
+body{ font-size: 0.875rem;font-family: "Microsoft YaHei", "sans-serif";}
+ul,li,ol{list-style-type: none;}
+.fl{float: left;}
+.fr{float: right;}
+.clearfix::after,
+.clearfix::before{content: "."; line-height: 0; height: 0; display: block; visibility: hidden; clear: both;}
+.clearfix{zoom:1;}
+input,select,button,textarea,keygen{font-family: "Microsoft YaHei";}
+a{color: #333;}
+a:hover{color: #333; text-decoration: none;}
+img{vertical-align:top;border:none;}
+em{font-style:normal;}

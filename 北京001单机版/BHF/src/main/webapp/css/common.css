@@ -1,0 +1,204 @@
+body{ font-size: 14px;font-family: "Microsoft YaHei"; background-color: #edeeec;}
+*{ margin: 0; padding: 0;resize: none;outline: 0;border: 0;text-decoration: none;}
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear: both;}
+ul,li,ol{list-style: none;}
+.warning{color:red;white-space: nowrap;}
+/*****outline*****/
+:focus{outline:none;}
+::-moz-focus-inner {border-color: transparent;}
+/**********修改checkbox的默认样式*********/
+input,select,button,textarea,keygen{  font-family: "Microsoft YaHei";}
+textarea{overflow: hidden;}
+input[type=checkbox] {visibility: hidden;}
+.checkboxOne {width: 16px;position: relative;display: inline-block;}
+.checkboxOne label {cursor: pointer;position: absolute;width: 14px;height: 14px;top: 0;left: 0;background: #fff;border:1px solid #cfcfcf;border-radius: 2px;}
+.checkboxOne label:after {opacity: 0;content: '';position: absolute;width: 8px;height: 7px;background:url("../img/icons3.png") -70px -1px no-repeat;top: 4px;left: 3px;} 
+.checkboxOne label:hover::after {opacity: 0.5;}
+.checkboxOne input[type=checkbox]:checked + label:after {opacity: 1;}
+/**********修改select的默认样式*********/
+select { padding-left: 1px;
+    border: solid 1px #ddd;/*Chrome和Firefox里面的边框是不一样的，所以复写了一下 */
+    /*很关键：将默认的select选择框样式清除*/
+    appearance:none;  -moz-appearance:none;  -webkit-appearance:none;
+    /*在选择框的最右侧中间显示小箭头图片*/ background: url(../img/select.png) no-repeat scroll right 8px center rgb(236, 244, 230);
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/ padding-right: 14px;
+    color: #636363;
+    outline: 0;
+}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand {display: none;}
+/**********修改input的默认样式*********/
+input[type=text],input[type=password]{padding-left:5px;border: 1px solid #ddd;background-color: #ecf4e6;font-family: "Microsoft YaHei";color: #636363;}
+/*统一placeholder属性的颜色*/
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{ /* WebKit browsers */  color: #b7b7b7;  }
+input:-moz-placeholder,textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */  color: #b7b7b7;  }
+input::-moz-placeholder,textarea::-moz-placeholder { /* Mozilla Firefox 19+ */  color: #b7b7b7;  }
+input:-ms-input-placeholder,textarea:-ms-input-placeholder { /* Internet Explorer 10+ */  color: #b7b7b7;  }
+
+/*****图表公用标题样式*****/
+.chart_panel{margin-top:15px;background-color: #fff;border: 1px solid #dfdfdf;box-shadow: 0 0 7px 1px rgba(0,0,0,0.13);position: relative;-webkit-box-shadow: 0 0 7px 1px rgba(0,0,0,0.13);-ms-box-shadow: 0 0 7px 1px rgba(0,0,0,0.13);-moz-box-shadow: 0 0 7px 1px rgba(0,0,0,0.13);}
+.excel_panel{border: none;border-top:1px solid #dfdfdf;}
+.cp_header{background-color: #dbe7ee;text-align: center;color: #8d8d8d;font-weight: bold;font-size: 1.3em;letter-spacing: 2px;line-height:40px;height:40px;}
+.excel_panel .cp_header{border-left:1px solid #dfdfdf;border-right:1px solid #dfdfdf;}
+/********国家级——图表******/
+.column1{width: 65.9%;}
+.column2{width: 32.15%;margin-left: 1.5%;}
+.chart_item{width: 100%;}
+
+/*页面顶部*/
+.top{overflow: hidden;background-color: #044975;height: 68px;position:fixed;z-index:999;line-height:68px;width: 100%;border-bottom:1px solid #2c4914;}
+.top .logo{margin: 9px 0 0 36px; width:350px;height:52px;}
+.top .logo img{
+	width:auto;
+	height:auto;
+	max-width:100%;
+	max-height:100%;
+	
+}
+.top_right{margin-right: 36px;/*width: 76%;*/}
+.top_nav{border-right:2px solid #3e7590;/*width: 42%;*/}
+.top_nav li{float: left;margin:15px;line-height: 20px;}
+.top_nav li.last{margin-right: 50px;}
+.top_nav li a{padding: 8px 21px;color: #fff;font-size: 0.945rem;display: inline-block;}
+.top_nav li a:hover{border-color:#fff;}
+.top_nav li a.current{border:1px solid #fff;}
+.icons{background: url("../img/icons7.png") no-repeat;display: inline-block;vertical-align: middle;}
+.root{display: inline-block;color: #fff;margin-left: 40px;}
+.icons-root{width: 30px;height: 30px;background-position: -2px -36px;margin-right: 10px}
+.exit{color: #3a88d8;padding: 5px 12px;border:1px solid #3a88d8;margin-left: 30px;}
+.icons-exit{width: 13px;height: 17px;background-position: 0 0;margin-right: 10px;}
+.exit:hover{border-color:#fff;color: #fff;}
+.exit:hover .icons-exit{background-position: -54px 0;}
+
+/*中间部分共同样式*/
+.main{padding: 69px 0 0;}
+.tab_title{margin:10px 0 0 36px;border:1px solid #cad1d6;display: inline-block;background-color: #e3e3e3;border-radius:2px;-ms-border-radius:2px;-o-border-radius:2px;-webkit-border-radius:2px;-ms-border-radius:2px;-moz-border-radius:2px;}
+.tab_title button{padding: 6px 29px;color: #6a6a6a;border-right:#8ab766;cursor: pointer;cursor: hand;}
+.tab_title button.current{background-color: #659dc1;border-right:#7ca45b;color: #fff;}
+.tab_cont{transition: 0.8s;padding: 0px 36px;}
+
+.fl{float: left;}
+.fr{float: right;}
+.clearfix::after,
+.clearfix::before{content: "."; line-height: 0; height: 0; display: block; visibility: hidden; clear: both;}
+.clearfix{zoom:1;}
+/* 年份下拉框 */
+/* .excel_btns .yearSelect{
+	height:24px;
+	border-radius:20px;
+	border: 1px solid #c9dfb8;
+	width:90px;
+	padding:0 9px;
+	background-color: #d4eac3;
+	color:#5b962b;
+	font-size:0.7rem;
+	margin-right:10px;
+	cursor:pointer;
+} */
+/* .excel_btns .yearSelect:hover{
+	color: #fff;background-color: #8ab766;border-color:#7aa755;
+} */
+/* ::selection { background:red; } */
+/* option{
+    -moz-appearance:none; Firefox
+    -webkit-appearance:none; Safari 和 Chrome
+    appearance:none;
+} */
+/* select:focus option:checked{
+ color: white;
+ background-image:linear-gradient(#fada00, #fada00);}
+} */
+/* select {
+   width: 100%;
+   height: 34px;
+   border: solid 1px #0086EA;
+   为下拉小箭头留出一点位置，避免被文字覆盖
+   padding-right:34px;
+   padding-left: 10px;
+   将默认的select选择框样式清除
+   appearance:none;
+   -moz-appearance:none;
+   -webkit-appearance:none;
+   background: url("/assets/img/caret.png") no-repeat scroll right center transparent;
+} */
+/* select::-ms-expand { display: none; } */
+/*  .excel_btns .yearSelect .000:hover {
+	background-color:red;
+	color:block;
+}
+.excel_btns .yearSelect .000{
+	background:skyblue;
+} */
+
+.excel_btns .yearSelect{position:relative;margin-right:10px;z-index:99;height:24px;border-radius:20px;margin-top: 10px;border: 1px solid #b0cad9;padding-left: 10px;padding-right:20px;color: #1b71a8;font-size: 0.7rem;}
+.excel_btns .yearSelectTit{font-weight:normal;border-radius:20px;text-align:left;cursor:pointer;display:block;border: 1px solid #c9dfb8;width:80px;height:18px;padding:3px 10px;background-color: #d4eac3;color:#5b962b;font-size:0.7rem;}
+.excel_btns .yearSelectTit:hover{color: #fff;background-color: #8ab766;border-color:#7aa755;}
+.excel_btns .yearSelect .icon-downjiantou{position: absolute;top: 5px;right: 2px;font-size: 1rem;cursor:pointer;} 
+.excel_btns .yearSelect .yearSelectDiv{width:100px;border: 1px solid #c9dfb8;display:none;}
+.excel_btns .yearSelect .yearSelectDiv.divShow{display:block;}
+.excel_btns .yearSelect .yearSelectDiv li{font-weight:normal;text-indent: 10px;cursor: pointer;height: 20px;line-height: 20px;background-color:#d4eac3;font-size:0.7rem;color:#5b962b;padding-left:6px;text-align:left;}
+.excel_btns .yearSelect .yearSelectDiv li:hover{background-color:#5b962b;color:#fff;}
+
+.province .provLink{cursor: pointer;background-color: #fff;}
+.province .provLink:hover{background-color: #659dc1;color: #fff;}
+.btn_tj{padding: 3px 10px;background: #b0cad9;border: 1px solid #a7c1d0;color: #1b71a8;font-size: 0.7rem;border-radius:20px;margin-right: 18px;cursor: pointer;cursor: pointer;}
+.btn_tj:hover{color: #fff;background-color: #659dc1;border-color:#568fb4;}
+
+/*****轮播切换样式*****/
+.p_nav{position: fixed;top: 50%;padding: 0 3px;right: 8px;margin-top: -24px;z-index:9999}
+.p_nav .p_list li{margin: 10px 0;}
+.p_nav .p_list li span{display:block;cursor:pointer;border: 1px solid #044975;width: 14px;height: 14px;border-radius: 50%;transition: 0.8s;}
+.p_nav .p_list li span.active{background-color: #044975;}
+
+.excel_btns .yearSelect{position:relative;margin-right:10px;z-index:99;
+            font-weight:normal;border-radius:20px;text-align:left;cursor:pointer;display:block;border: 1px solid #a7c1d0;
+            width:90px;height:26px;line-height: 18px;padding:3px 8px;background-color: #b0cad9;color:#1b71a8;font-size:0.7rem;}
+.excel_btns .yearSelect:hover{color: #fff;background-color: #659dc1;border-color:#568fb4;}
+
+/*控制分页显示列样式*/
+.checkBoxText{color:grey;}
+.showLineLabel{margin-right:10px;}
+.queryLineOptionDiv{width:1600px;position:relative;left:25px;top:5px;}/*1160*/
+@media screen and (max-width: 1300px) {
+    .queryLineOptionDiv{width:90%;position:relative;left:15px;}
+}
+.showLineLabel input,.showLineLabel label{cursor:pointer;}
+
+.sywhTab_title{margin:15px 0px 0px 25px;border:1px solid #cad1d6;display: inline-block;}
+.sywhTab_title button{border-right: 1px solid #d1d6d9;float:left;padding:6px 29px;cursor: pointer;cursor: hand;}
+.sywhTab_title button:hover{background-color: #659dc1;border-right:1px solid #7ca45b;color: #fff;}
+.sywhTab_title button.lastBtn,.sywhTab_title button.lastBtn:hover{border-right:none;}
+.sywhTab_title button.current{background-color: #659dc1;border-right:#7ca45b;color: #fff;}
+
+/*导航条样式*/
+.navTip{
+    width:auto;
+    height:17px;
+    /*background-color: red;*/
+    color:#585858;
+    position:relative;
+    left:25px;
+    top:7px;
+}
+.navTip a {
+    text-decoration: none;
+    color:#444;
+}
+.breadcrumb {
+    padding: 8px 15px;
+    list-style: none;
+    border-radius: 4px;
+}
+.breadcrumb > li {
+    display: inline-block;
+}
+.breadcrumb > li + li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
+.breadcrumb > .active {
+    color: #EE1289;
+}

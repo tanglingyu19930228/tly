@@ -1,0 +1,12 @@
+﻿[
+	{id: "user", text: "用户管理"},
+		
+	{id: "userManager", text: "用户管理", pid: "user" },
+
+	{ id: "dict", text: "字典管理"},
+		
+	{id: "dict_areaManager", text: "地区字典管理",  pid: "dict" },
+	{id: "dict_gyManager", text: "数据字典管理", pid: "dict"},
+]
+
+

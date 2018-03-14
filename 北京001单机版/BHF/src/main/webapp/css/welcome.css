@@ -1,0 +1,160 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: #edeeec;
+    overflow: hidden;
+}
+.top{
+    overflow: hidden;
+    height: 68px;
+    line-height: 68px;
+    width: 100%;
+    border-bottom:1px solid #044975;
+    background-color: #044975;
+}
+.top .logo{
+    margin:9px 0 0 36px;
+}
+.top_right{
+    margin-right:36px;
+}
+.root{
+    display:inline-block;
+    color:#fff;
+    margin-left:40px;
+}
+.icons{
+    background: url(../img/icons7.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+.icons-root{
+    width: 30px;
+    height: 30px;
+    background-position: 0 -27px;
+    margin-right: 10px;
+}
+
+.exit{color: #3a88d8;padding: 5px 12px;border:1px solid #3a88d8;margin-left: 30px;}
+.icons-exit{width: 13px;height: 17px;background-position: 0 0;margin-right: 10px;}
+.exit:hover{border-color:#fff;color: #fff;}
+.exit:hover .icons-exit{background-position: -54px 0;}
+
+.top_nav{
+    border-right: 2px solid #577b3a;
+}
+.top_nav li{
+    float: left;
+    margin: 15px;
+    line-height: 20px;
+}
+.top_nav li a{
+    padding: 8px 21px;
+    color: #fff;
+    border: 1px solid #265103;
+    font-size: 0.945rem;
+    display: inline-block;
+}
+.top_nav li a.current{
+    border: 1px solid #fff;
+}
+.top_nav li.last{
+    margin-right: 50px;
+}
+
+.content{
+    height: 900px;
+    padding-top:20px;
+    position:relative;
+}
+.main{
+    background-color: #e7eef3;
+    height: 850px;
+    margin:0 auto;
+}
+.main h3{
+	margin:0 auto;
+	width:800px;
+    margin-top:10px;
+    padding-top:50px;
+    text-align: center;
+    color:#044975;
+    font-size:28px;
+    font-family:"SimHei"
+}
+.items{
+    position:absolute;
+    top:230px;
+    left: 50%;
+    margin-left:-742px;
+    width:1480px;
+}
+.items li{
+    width: 240px;
+    float:left;
+    margin-right:170px;
+}
+.items .lastLi{
+    margin-right:0;
+}
+.items li a{
+    display:inline-block;
+    width: 100%;
+}
+.items li img{
+    width: 100%;
+}
+.items li span{
+    display:inline-block;
+    width: 240px;
+    text-align: center;
+    height:80px;
+    line-height:80px;
+    font-size:16px;
+    color:#4d504b;
+}
+
+@media screen and (max-width: 1450px) {
+	.items{
+	    position:absolute;
+	    top:230px;
+	    left: 50%;
+	    margin-left:-575px;
+	    width:1150px;
+	}
+    .items li{
+	    width: 240px;
+	    float:left;
+	    margin-right:50px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

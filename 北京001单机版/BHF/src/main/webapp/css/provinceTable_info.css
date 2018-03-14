@@ -1,0 +1,124 @@
+.tab_title button{border-right: 1px solid #d1d6d9;float:left;}
+.tab_title button:hover{background-color: #659dc1;border-right:1px solid #7ca45b;color: #fff;}
+.tab_title button.lastBtn,.tab_title button.lastBtn:hover{border-right:none;}
+/*表格列表样式*/
+.overflowX{overflow-x: auto;}
+.overflowX .mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar{height: 6px;}
+/*.overflowX .mCSB_horizontal.mCSB_inside > .mCSB_container{margin-bottom: 22px;}*/
+/*2017-12-07 设置数据表格区域最小高度 by徐成*/
+.overflowX .mCSB_horizontal.mCSB_inside > .mCSB_container{margin-bottom: 22px;min-height: 300px;}
+.overflowX .mCSB_scrollTools.mCSB_scrollTools_horizontal{height: 22px;}
+.overflowX .mCSB_scrollTools .mCSB_buttonRight{background-position: -137px -53px;}
+.overflowX .mCSB_scrollTools .mCSB_buttonLeft{background-position: -142px -37px;}
+.comBorder{border:1px solid #e6e4e4;border-collapse:collapse;}
+.tabList{width:4000px;background: #fff;margin-top:15px;color: #585858;word-break:break-all;}
+.tabList th,.tabList td{text-align: center;}
+.tabList thead{background-color: #dbe7ee;border-bottom:1px solid #e3e7e0;}
+.tabList thead th{padding: 15px 0;font-size: 0.9rem;font-weight: normal;}
+.tabList tbody tr{border-bottom:1px solid #eff1ed;}
+.tabList tbody td{padding: 10px 0;max-width:200px;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.typeTitle{cursor:pointer;/*border: 1px solid transparent;*/padding:2px 2px 2px 8px;position: relative;}
+/*.typeTitle:hover{border-color:#8ab766;}*/
+.typeTitle i{font-style: normal;}
+.icons-down{width: 9px;height: 8px;background-position: -69px 0px;margin-left: 5px;}
+.typeItem{border: 1px solid #8ab766;position: absolute;top: -3px;z-index: 999;display: none;right: -6px;overflow:auto;}
+.typeItem a{background-color: #659dc1;display: block;color: #fff;font-size: 0.9rem;padding: 4px 12px;}
+.typeItem a:hover{background-color: #044975;}
+.typeItem li:first-child a{padding-right: 22px;}
+.icons-up{width: 9px;height: 10px;background-position: -2px -1px;position: absolute;right: 7px;top: 10px}
+.typeItem li{white-space: nowrap;text-align: left;}
+/*.tabList tbody tr td:nth-of-type(odd){background-color:#f3f6f2;}//隔列换色*/
+.tabList tbody tr:nth-of-type(odd){background-color:#f3f6f2;}/*隔行换色*/
+
+/*弹窗样式*/
+.window-proxy-mask, .window-mask{background-color: #000;}
+.window-mask{opacity: 0.2;filter: alpha(opacity=40);}
+.window{padding: 0;border-radius:0;}
+.window, .window .window-body{border:0;}
+.window, .window .window-body{border:0;border-bottom:2px solid #044975;}
+.window .window-header{padding: 10px;background: #044975;}
+.panel-header-noborder{border:0;}
+.panel-title{font-size: 1.1em;color: #fff;font-weight: normal;}
+.panel-tool a{opacity: 1;margin: 4px 10px 0 2px;}
+.panel-tool-close{background: url("../img/icons1.png") -24px -14px no-repeat;}
+.panel-tool a:hover{background: url("../img/icons1.png") -24px -14px no-repeat;}
+.window-shadow{/*-moz-box-shadow: 0 1px 10px 3px #cccccc;
+    -webkit-box-shadow: 0 1px 10px 3px #cccccc;
+    box-shadow: 0 1px 10px 3px #cccccc; */box-shadow:none;-moz-box-shadow:none;-webkit-box-shadow:none;background:none;}
+.cancal_btn{margin-left: 20px;}
+.panel-icon, .panel-tool{height: 20px}
+.panel-body{font-size: 14px;color: #585858; }
+
+/*添加项目*/
+.commonForm{word-break: break-all;padding-bottom:20px;}
+.commonForm input.focused{border-color:red;}
+.commonForm select.focused{border-color:red;}
+.commonForm textarea.focused,.commonForm div.focused,.commonForm span.focused{border-color: #6eb46c;}
+.commonForm input:focus,#formAdd textarea:focus,#formAdd select:focus{border-color:#6eb46c;}
+.commonForm>div{width: 100%;padding: 5px 0;position: relative;}
+.commonForm>div label{width: 15%;display: inline-block;text-align: right;font-size: 0.9rem;}
+.commonForm>div label.ver-middle{width:12.8%;line-height:15px;}
+.commonForm>div input{height: 28px;line-height: 28px;width:81%;}
+.commonForm div select{height: 30px;line-height: 30px;width:26%;}
+.commonForm .w50{width: 50%;display: inline-block;float: left;}
+.commonForm .w50 label{width: 30%;}
+.ver-middle{vertical-align:middle;}
+.commonForm .w50 label.ver-middle{width: 30%;line-height:16px;}
+.commonForm .w85{width: 84%;display: inline-block;}
+.warea label{vertical-align: top;}
+.input01{width: 82.5%;display: inline-block;}
+.input02{width: 78%;display: inline-block;}
+.input03{width: 65%;}
+.select01{width: 26.5%;margin-right: 1.4%;padding-left:5px;}
+.select02{width: 66.8%;padding-left:5px;}
+.commonForm div .select02{height: 30px;line-height: 30px;width:64%;}
+.lastSelect{margin-right: 0;}
+.textarea01{height: 100px;border:1px solid #ddd;background-color: #ecf4e6;width: 96%;}
+.wRmb{border:1px solid #ddd;background: #ecf4e6;width:64%;display: inline-block;}
+.wRmb>input{border:0;width: 84%;}
+.wRmb span.dw{font-size: 0.7rem;color: #bcbcbc;}
+.start{color: red;font-size: 12px;height: 30px;line-height: 30px;vertical-align: middle;text-align: center;margin-left: 2px;}
+.btn{background: url("../img/icons2.png") -8px -92px no-repeat;width: 108px;height: 31px;color: #fff;cursor: hand;cursor: pointer;}
+.btn:hover{background: url("../img/icons2.png") -125px -92px no-repeat;}
+.commonForm textarea{font-size: 0.9em;color:#636363 ;padding: 5px;}
+
+.commonForm>div.dutyRoad,.commonForm>div.bridge,.commonForm>div.wharf,.commonForm>div.tarmac,.commonForm>div.ironNet,.commonForm>div.ironFence,.commonForm>div.median,.commonForm>div.hinderStake,.commonForm>div.knifeRest,.commonForm>div.median,.commonForm>div.alarmCircuit,.commonForm>div.surveillanceCenter,.commonForm>div.monitorStation,.commonForm>div.vedioLeadingEnd,.commonForm>div.samkoonEnd,.commonForm>div.transmissionLink,.commonForm>div.wirelessTransmission,.commonForm>div.warningDevice,.commonForm>div.powerSystem,.commonForm>div.defensePlatform,.commonForm>div.electronicSentinel,.commonForm>div.dutyHouse,.commonForm>div.watchtower,.commonForm>div.denoter,.commonForm>div.lighthouse,.commonForm>div.buoyLight,.commonForm>div.drogue{padding:0;}
+.dutyRoad>div,.bridge>div,.wharf>div,.tarmac>div,.ironNet>div,.ironFence>div,.median>div,.hinderStake>div,.knifeRest>div,.median>div,.alarmCircuit>div,.surveillanceCenter>div,.monitorStation>div,.vedioLeadingEnd>div,.samkoonEnd>div,.transmissionLink>div,.wirelessTransmission>div,.warningDevice>div,.powerSystem>div,.defensePlatform>div,.electronicSentinel>div,.dutyHouse>div,.watchtower>div,.denoter>div,.lighthouse>div,.buoyLight>div,.drogue>div{width: 100%;padding: 5px 0;position: relative;}
+/*日历*/
+/*.datebox .combo-arrow{background: url("../img/icons1.png") 6px -8px no-repeat;}*/
+.combo-arrow{opacity: 1;}
+
+/*验证提示框样式*/
+.tips{position: absolute;top: 30px;left: 105px;background-color:#ddebf3;border:1px solid #b9b9b9;padding:3px 25px 4px 15px;box-shadow: 0 0 2px 1px #d9d9d9;-ms-box-shadow: 0 0 2px 1px #d9d9d9;-webkit-box-shadow: 0 0 2px 1px #d9d9d9;-moz-box-shadow: 0 0 2px 1px #d9d9d9;z-index: 100;}
+span.tips:before{content: "";position:absolute;width: 8px;height: 6px;left:7px;top: -6px;background: url("../img/icons1.png") -81px -2px no-repeat;}
+
+.jsqyTips{position: absolute;top: 30px;left: 5px;background-color:#ddebf3;border:1px solid #b9b9b9;padding:3px 25px 4px 15px;box-shadow: 0 0 2px 1px #d9d9d9;-ms-box-shadow: 0 0 2px 1px #d9d9d9;-webkit-box-shadow: 0 0 2px 1px #d9d9d9;-moz-box-shadow: 0 0 2px 1px #d9d9d9;z-index: 100;}
+span.jsqyTips:before{content: "";position:absolute;width: 8px;height: 6px;left:7px;top: -6px;background: url("../img/icons1.png") -81px -2px no-repeat;}
+
+.nameTd{cursor:pointer;cursor:hand;}
+
+/***导入文件***/
+/*重写上传按钮样式*/
+.webuploader-container{margin-top: 8px;}
+.webuploader-pick{background:#c7dfb3;border: 1px solid #a6e577; padding: 4px 10px;border-radius:0;}
+.webuploader-pick-hover {background: #9dd077;}
+/*重写file-item样式*/
+.fileNameView,.file-item .info{background-color:#ecf4e6;border: 1px solid #ddd;line-height:27px;padding: 0 25px 0 5px;}
+.fileNameView{height: 28px;}
+.file-item .info:hover{border-color: #6eb46c;}
+.file-item .info{line-height: 27px;position: relative;word-break: break-all;}
+.file-item .info .remove-this,.file-item .remove-one{right: 6px; top: 50%;position: absolute;margin-top: -16px;cursor: pointer;font-size: 1.5em;color: #adaead;}
+
+/*弹框中滚动条样式*/
+.scrollBlock .mCSB_scrollTools .mCSB_draggerRail{background-color:#ddd;width: 1px;}
+.scrollBlock .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{width: 3px;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;}
+
+.zip-list{display: inline-block;width: 78%;vertical-align: top;}
+.upload-btn1{display: inline-block;width: 5.5%;vertical-align:top;margin-top:0;text-align: center;height:30px;}
+.upload-btn1 .webuploader-pick{width: 100%;text-align:center;background: none;padding: 0;color:#3e8a00;border:0;height: 30px;line-height: 30px;text-decoration: underline;text-align: right;}
+.zip-list.disableUp{width:82%;}
+.zip-list.disableUp .fileNameView,.zip-list.disableUp .info{background-color:#e9e9e9;}
+.zip-list.disableUp .info:hover{border-color:#ddd;}
+
+.depiction{color:#585858;}
+.depiction strong{color: #3e8a00;font-size: 1.1em;}

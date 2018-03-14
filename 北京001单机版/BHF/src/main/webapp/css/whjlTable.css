@@ -1,0 +1,27 @@
+.xhjlTabList{width:100%;background: #fff;margin-top:5px;color: #585858;word-break:break-all;}
+.xhjlTabList th,.xhjlTabList td{text-align: center;}
+.xhjlTabList thead{background-color: #dbe7ee;border-bottom:1px solid #e3e7e0;}
+.xhjlTabList thead th{height: 50px;font-size: 0.9rem;font-weight: normal;}
+.xhjlTabList tbody tr{border-bottom:1px solid #eff1ed;}
+.xhjlTabList tbody td{height: 40px;}
+.xhjlTabList tbody td select{background-color:#f3f6f2;}
+.xhjlTabList tbody tr:nth-of-type(odd){background-color:#f3f6f2;}/*隔行换色*/
+
+/*修改时间日期样式*/
+.dateOutSpan{
+	border:0px;
+	background-color:#f3f6f2;
+	margin-top:6px;
+}
+.dateInnerSpan{
+	border:0px;
+	background-color:#f3f6f2;
+}
+
+/*验证提示框样式*/
+.whjlTips{position: absolute;top: 30px;left: 15px;background-color:#ddebf3;border:1px solid #b9b9b9; white-space: nowrap;
+			padding:3px 25px 4px 15px;box-shadow: 0 0 2px 1px #d9d9d9;-ms-box-shadow: 0 0 2px 1px #d9d9d9;
+			-webkit-box-shadow: 0 0 2px 1px #d9d9d9;-moz-box-shadow: 0 0 2px 1px #d9d9d9;z-index: 100;}
+span.whjlTips:before{content: "";position:absolute;width: 8px;height: 6px;left:7px;top: -6px;background: url("../img/icons1.png") -81px -2px no-repeat;}
+
+ #whjlTbody textarea{overflow-y:visible; width:100%;}

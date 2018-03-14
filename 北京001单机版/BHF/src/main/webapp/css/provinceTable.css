@@ -1,0 +1,73 @@
+html,body{height: 100%;}
+.m_left,.m_right{height: 98%;}
+/*****重写的样式*****/
+.tab_cont{height: 100%;padding: 0 36px 0 25px;overflow-y: auto;  }
+div#tab_cont_div {
+    height: 80%;
+}
+.tab_title{margin: 15px 0 0 25px}
+.p_nav{right: 13px;}
+
+.m_left{width: 14%;min-width: 255px;}
+.m_right{margin-left: 14%;}
+/*左边树形样式*/
+#treeMenu{border: 1px solid #dfdfdf;border-top:none;box-shadow: 0 0 7px 1px rgba(0,0,0,0.13);background:#fff;margin: 15px 0 0 36px;}
+.nation{background-color:#044975;display: block;height: 42px;line-height: 42px;border: 1px solid #dfdfdf;box-shadow: 0 0 7px 1px rgba(0,0,0,0.13);}
+.nation a{padding-left: 15px;color: #fff;font-size: 1.1rem;font-weight: bold;letter-spacing: 5px;}
+.icons-flag{width: 15px;height: 18px;margin-right: 5px;background-position: -18px 0}
+.scrollMenu{margin-left:16px;}
+#DB_tree{position:relative;margin-top: 10px;}
+#DB_tree a{color:#585858;vertical-align:top;}
+#DB_tree li.DB_1D{padding: 4px 0;}
+#DB_tree li.DB_1D>a{font-size: 0.95rem;}
+#DB_tree .DB_1D.DB_select a{color:#cc0000;}
+#DB_tree .DB_1D .plusImg{position:absolute;left:0;top:8px;cursor:pointer;}
+#DB_tree .DB_1D .icon{position:absolute;left:0;top:3px;cursor:pointer;}
+#DB_tree .DB_1D span.DB_plus{cursor: pointer;cursor: hand;}
+#DB_tree li{min-height:21px;position:relative;text-indent:16px;}
+#DB_tree .DB_1D ul{display:none;margin-top:5px}
+#DB_tree .DB_2D .plusImg{top:6px;}
+#DB_tree .DB_1D .DB_2D>li{padding: 2px 0 2px 0px;margin-left: 24px;}
+#DB_tree .DB_1D .DB_2D li span{color: #585858;}
+#DB_tree .DB_1D .DB_2D li a{font-size:12px;color:#585858;vertical-align:top;border:1px solid #fff;padding: 2px 8px;}
+#DB_tree .DB_1D .DB_2D li a:hover{color:#005f9b;border-color:#005f9b;}
+#DB_tree .DB_1D .DB_2D li a.current{color:#005f9b;border-color:#005f9b;}
+#DB_tree .DB_1D li a.current{color:#005f9b;border:1px solid #005f9b;}
+#DB_tree .DB_2D ul>li{padding:3px 0;margin-left: 15px;}
+/*******滚动条样式******/
+.mCSB_scrollTools{opacity: 1;}
+.mCSB_scrollTools .mCSB_draggerRail{background-color:#eee;width: 16px;border-radius: 0;-moz-border-radius: 0;-webkit-border-radius: 0;}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{width: 6px;background-color:#dbdddf;border:1px solid #cddce7;border-radius:0;-moz-border-radius: 0;-webkit-border-radius: 0;}
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{background-color:#98cae9;}
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar, .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{background-color:#98cae9;}
+/*表格样式*/
+.implementPlanT{border: 1px solid #e6e4e4;border-collapse: collapse;text-align: center;width: 100%;color: #585858;height:600px;}
+.implementPlanT caption{
+	font-size:1.3em;
+	color:#8d8d8d;
+	background:#dbe7ee;
+	text-align: center;
+	font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: -40px;
+    line-height: 40px;
+    height:40px;
+}
+.implementPlanT thead tr{
+	height:29px;
+}
+.implementPlanT td, .implementPlanT th {border: 1px solid #e6e4e4;}
+.tWidth7{width: 2%;min-width: 14px;}
+.tWidth8{width: 4%;}
+.tpad1{padding: 1.1% 0;}
+.tpad2{padding: 0.3% 0;}
+.tpad3{padding: 0 1%;}
+.tpad4{padding: 0 1.5%}
+
+
+/*******省级总表投资年度切换样式******/
+.yearSelect1{font-weight:normal;border-radius:20px;text-align:center;cursor:pointer;border: 1px solid #a7c1d0;
+            width:90px;height:26px;line-height: 18px;padding:3px 8px;margin-right:20px;background-color: #b0cad9;color:#1b71a8;
+            font-size:0.7rem;}
+.yearSelect1:hover{color: #fff;background-color: #659dc1;border-color:#568fb4;}
+

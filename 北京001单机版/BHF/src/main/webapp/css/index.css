@@ -1,0 +1,55 @@
+.excel_btns{
+    position: absolute;
+    right: 0;
+    top: 0px;
+    display: inline
+}
+table.basicPlanT {
+    color: #585858;
+    border: 1px solid #e6e4e4;
+    /*border-collapse: collapse;*/
+    text-align: center;
+    width: 100%;
+    transition: 0.8s;
+    position: relative;
+    z-index: 10;
+    font-size: 12px;
+    word-break:break-all;
+}
+
+table.basicPlanT td, table.basicPlanT th {
+    border-bottom: 1px solid #585858;
+    border-right: 1px solid #585858;
+    padding: 2px 0;
+}
+
+table.basicPlanT th span {
+    font-weight: normal;
+}
+
+table.basicPlanT td.noBR,table.basicPlanT th.noBR {
+    border-right: none;
+}
+table.basicPlanT .lastTr td,table.basicPlanT .lastTr th{ border-bottom:none;}
+table.basicPlanT td.t_header{
+    font-size: 1.2em;
+}
+.tWidth1,.tWidth5{width: 2.2%;}
+.tWidth2{width: 2.3%;}
+.tWidth3{width: 7.2%}
+table.basicPlanT .tWidth4{width: 3.74%;font-size: 1.2em;}
+table.basicPlanT .tWidth1,table.basicPlanT .tpad1{padding: 0 0.5%;}
+table.basicPlanT .tWidth2,table.basicPlanT .tpad2{padding: 0 0.2%;}
+.tWidth1{font-size: 1.2em;}
+.tLineH{line-height: 32px;}
+
+table.basicPlanT .thposition{position: relative;line-height: 15px;padding-bottom: 10px;}
+.thabsolute{position: absolute;width: 100%;top:70px;left:0;font-size: 0.7rem;}
+.planAmountTr th,.planAmountTr td{position: relative;}
+textarea.editItems{width: 100%;text-align: center;color: #585858;background-color: #eee;font-size: inherit;}
+textarea:disabled{background-color: #fff;}
+.editLink{position:absolute;right:10px;color: #8ab766;text-decoration: underline;cursor: pointer;}
+.icon-ok{background-color: #8ab766;color:#fff;width: 50%;cursor:pointer;}
+/*验证提示框样式*/
+.tips{position: absolute;top: 15px;left: 0;white-space:nowrap;background-color:#ddebf3;border:1px solid #b9b9b9;padding:3px 25px 4px 15px;box-shadow: 0 0 2px 1px #d9d9d9;-webkit-box-shadow: 0 0 2px 1px #d9d9d9;-moz-box-shadow: 0 0 2px 1px #d9d9d9;z-index: 100;}
+span.tips:before{content: "";position:absolute;width: 8px;height: 6px;left:7px;top: -6px;background: url("../img/icons1.png") -81px -2px no-repeat;}

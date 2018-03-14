@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据字典管理</title>
+    <script src="scripts/boot.js" type="text/javascript"></script>
+    <link href="css/demo.css" rel="stylesheet" type="text/css">
+    <link href="scripts/themes/blue/skin.css" rel="stylesheet" type="text/css">
+    <script src="layui/layui.all.js" type="text/javascript"></script>
+    <style>
+        .layui-layer-molv .layui-layer-title{
+            background: #064b71;
+        }
+        .layui-layer-molv .layui-layer-btn a{
+            background: #064b71;
+        }
+        .layui-layer-molv .layui-layer-btn .layui-layer-btn1{
+            background: #064b71;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+<div style="width:100%;">
+    <div class="mini-toolbar" style="border-bottom:0;padding:0px;">
+        <table style="width:100%;">
+            <tr>
+                <td style="width:100%;">
+                    <a class="mini-button" iconCls="icon-add" onclick="addRow()" plain="true" tooltip="增加...">增加</a>
+                    <a class="mini-button" iconCls="icon-remove" onclick="removeRow()" plain="true">删除</a>
+                    <span class="separator"></span>
+                    <a class="mini-button" iconCls="icon-save" onclick="saveData()" plain="true">保存</a>
+                </td>
+                <td style="white-space:nowrap;">
+                    <input id="typeName" class="mini-textbox" emptyText="请输入字典类型" style="width:150px;" onenter="onKeyEnter"/>
+                    <a class="mini-button" onclick="search()">查询</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="dataGird" class="mini-datagrid" style="width:100%;" url="../dict/load"
+     idField="id" allowResize="false" pageSize="20" allowCellEdit="true" allowCellSelect="true" multiSelect="true"
+     editNextOnEnterKey="true"  editNextRowCell="true" oncellvalidation="onCellValidation" allowCellValid="true">
+    <div property="columns">
+        <div type="indexcolumn"></div>
+        <div type="checkcolumn" ></div>
+        <div field="typeName" name="typeName" headerAlign="center" allowSort="false">字典类型
+            <input property="editor" class="mini-textbox"  style="width:100%;" />
+        </div>
+        <div field="codeName" name="codeName" headerAlign="center" allowSort="false">字典名称
+            <input property="editor" class="mini-textbox"  style="width:100%;" />
+        </div>
+        <div field="codeValue" name="codeValue" headerAlign="center" allowSort="false">字典编码
+            <input property="editor" class="mini-textbox" style="width:100%;" >
+        </div>
+        <div field="superCode" name="superCode" headerAlign="center" allowSort="false">上级字典编码
+            <input property="editor" class="mini-textbox" style="width:100%;" >
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    mini.parse();
+    var grid = mini.get("dataGird");
+    grid.load();
+
+    //条件查询
+    function search(){
+        var typeName = mini.get("typeName").getValue();
+        grid.load({typeName:typeName});
+    }
+
+    //输入查询条件，按“enter”键触发查询
+    function onKeyEnter(){
+        search();
+    }
+
+    layer.config({
+        anim: 1, //默认动画风格
+        skin: 'layui-layer-molv', //默认皮肤
+        offset:"20%"
+    });
+
+    function addRow() {
+        var newRow = { name: "New Row" };
+        grid.addRow(newRow, 0);
+        grid.validateRow(newRow);
+        grid.beginEditCell(newRow, "typeName");
+    }
+    function removeRow() {
+        var rows = grid.getSelecteds();
+        if (rows.length > 0) {
+            layer.confirm("是否删除所选记录",function(){
+                grid.removeRows(rows, true);
+                saveData();
+            })
+        }else{
+            layer.alert("请选择要删除的字典数据");
+        }
+    }
+
+    function saveData(){
+        grid.validate();
+        if (grid.isValid() == false) {
+            var error = grid.getCellErrors()[0];
+            grid.beginEditCell(error.record, error.column);
+            return;
+        }
+        var data = grid.getChanges();
+        var json = mini.encode(data);
+        $.ajax({
+            url: "../dict/save",
+            data: { data: json },
+            type: "post",
+            success: function (text) {
+                grid.reload();
+                grid.deselectAll();
+                layer.closeAll();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                grid.reload();
+            }
+        });
+    }
+    grid.on("celleditenter", function (e) {
+        var index = grid.indexOf(e.record);
+        if (index == grid.getData().length - 1) {
+            var row = {};
+            grid.addRow(row);
+        }
+    });
+
+    grid.on("beforeload", function (e) {
+        if (grid.getChanges().length > 0) {
+            layer.confirm("有新增或修改的数据未保存，是否取消本次操作？",function(){
+                e.cancel = true;
+                layer.closeAll();
+            })
+        }
+    });
+
+    /**
+     * 验证
+     * @param e
+     */
+    function onCellValidation(e) {
+        if(e.field=="typeName"){
+            var value= e.value;
+            if(value==null){
+                e.isValid=false;
+                e.errorText="字典类型不能为空！";
+            }
+        }else if(e.field=="codeName"){
+            var value= e.value;
+            if(value==null){
+                e.isValid=false;
+                e.errorText="字典名称名称不能为空！";
+            }else if(value.length>50){
+                e.isValid=false;
+                e.errorText="最多输入50个字！";
+            }
+        }else if(e.field=="codeValue"){
+            var value= e.value;
+            if(value==null){
+                e.isValid=false;
+                e.errorText="字典编码不能为空！";
+            }else if(value.length>50){
+                e.isValid=false;
+                e.errorText="最多输入50位数";
+            }
+        }
+    }
+</script>
+</html>
