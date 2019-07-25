@@ -1,0 +1,6 @@
+在redis.conf下
+设置daemonize yes(默认是no)
+设置dir为redis所在的安装目录
+redis-cli -h 127.0.0.1 -p 7001 -a password(连接客户端命令)
+启动带有配置的redis:在src目录下执行redis-server /redis.conf配置文件所在目录
+redis.conf中的dir(数据库镜像备份的文件放置的路径)

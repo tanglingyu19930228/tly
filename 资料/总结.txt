@@ -1,0 +1,95 @@
+1.mysql复制表的语句:
+   比如要复制p_user表的结构和数据
+   正确做法:create table p_user_copy like p_user(这句是复制p_user的表结构主键也会复制过去)
+   然后插入数据:insert into p_user_copy select * from p_user
+2.如果只是单纯地复制表里面的数据可以使用:
+  create table p_user_copy as (select * from p_user)这里只会复制表里面的数据不会复制表结构
+3.mysql如果存在记录(主键冲突)就执行更新操作否则就执行插入操作:
+  insert into p_user(id,name) values(1,'sb') on duplicate key update name='tly'
+  或者使用mysql关键字replace into
+  replace into p_user(id,name) values(1,'sb')  -->这种方式是先尝试插入如果冲突就更新
+  也可以使用:
+  replace into p_user(id,name) select 1,'sb'
+4.过度倾诉--强行分享--探问隐私--自我暴露
+5.加密算法总结:
+  一.对称加密算法(加密和解密均采用同一把秘密钥匙,通信双方都必须获得这把钥匙,并保持钥匙的秘密)
+  二.非对称加密算法(加密秘钥--公钥和解密秘钥--私钥是不同的)
+常见对称加密算法:des(data encryption standard) ,3des,aes
+常见的非对称加密算法:rsa dsa ecc
+散列算法:md5 sha
+6.数据库隔离级别:
+   假设有A,B两个线程在操作数据库
+  1.脏读--A读到了B没有commit的数据
+  2.重复读--A读到了B提交的数据
+  3.幻影重读--A读不到B提交的数据,但是B如果insert一些数据A是可以读取到的
+  4串行化--A,B完全隔离互不影响
+7.校验身份证号码的正则表达式:
+Pattern p = Pattern.compile("^\\d{15}$|^\\d{17}[0-9Xx]$");
+Matcher matcher = p.matcher(value);
+if(!matcher.matches()){
+System.err.println("身份证号码不匹配!");
+}
+8.校验手机号码的正则表达式:
+Pattern p = Pattern.compile("^((13[0-9])|(14[5,7,9])|(15([0-3]|[5-9]))|(166)|(17[0,1,3,5,6,7,8])|(18[0-9])|(19[8|9]))\\d{8}$");
+Matcher matcher = p.matcher(value);
+if(!matcher.matches()){
+System.err.println("手机号码不匹配!");
+}  
+9.redis设置密码
+vi redis.conf-->?requirepass-->打开注释更改为requirepass tly
+10.基于多数据源的分库策略:
+需要被分库的表需要指定表中的某个分库字段(mchtNo),比如01号库存储Hash值范围为1~10000,
+02号库存储Hash值范围为10001~20000等(这个是mycat或者框架开始就指定了的),
+插入数据时前面的mchtNo经过Hash得到100,这个时候框架或者mycat就会选择01号库插入,查询的时候根据传过来的mchtNo的Hash值
+比如15000这个时候mycat或者框架就会选择02号库进行查询
+11.对账框架:与通道侧对账具体步骤:
+一.下载通道对账文件
+二.预处理通道对账文件(解析通道对账文件并把通道对账文件转化为标准对账文件.sdd文件)
+三.取平台存疑数据merge通道标准文件(得到最终的.sdd文件)
+四.通道最终的.sdd文件执行linux命令sort -t ',' -k 1 - o /root/银联.sdd /root/银联.sort(得到通道的标准排序文件.sort文件)
+五.取平台流水-->查询所有的库
+六.合并平台存疑数据到标准文件(得到平台的标准文件.sdd),执行linux的cat命令
+七.平台最终的.sdd文件执行linux命令sort -t ',' -k 1 - o /root/local.sdd /root/local.sort(得到通道的标准排序文件.sort文件)
+八.local.sort文件和银联.sort文件进行比对(这个过程中会进行相应差错类型处理)
+九.根据流水表中的流水对账状态生成商户对账单
+12.TCC分布式框架的理解:
+一.注意工程中的三种状态:交易流水状态,TCC事物状态,TCC里面的步骤状态
+二.一个步骤对应6个动作分别是:doTry,doConfirm,doCancel,doQuery,doNextQueryDelay,doRecovery
+三.正向尝试:doTry-->(如果不是终态会执行doQuery操作)同时异步执行下一个步骤的doTry如果每个步骤都是成功就会执行最终的doConfirm
+四.反向撤销:依次执行doCancel动作
+13.linux下面重启mysql服务:service mysqld restart
+14.校验日期yyyyMMdd格式的正则表达式:
+String str = "([\\d]{4}(((0[13578]|1[02])((0[1-9])|([12][0-9])|(3[01])))|(((0[469])|11)((0[1-9])|([12][1-9])|30))|(02((0[1-9])|(1[0-9])|(2[1-8])))))|((((([02468][048])|([13579][26]))00)|([0-9]{2}(([02468][048])|([13579][26]))))(((0[13578]|1[02])((0[1-9])|([12][0-9])|(3[01])))|(((0[469])|11)((0[1-9])|([12][1-9])|30))|(02((0[1-9])|(1[0-9])|(2[1-9])))))";
+15.常用的时间复杂度按照耗费的时间从小到大依次是:
+0(1)<0(logn)<0(n)<0(nlogn)<0(n^2)<0(n^3)<0(2^n)<0(n!)
+16.linux排序命令
+sort -t , -k 1 -o a.sort /home/CAP_20181112_CHECK_0001.sdd
+sort -t , -k 1 -o b.sort /home/PMC_UPP_20181017.sdd
+17.乐观锁和悲观锁的区别:
+悲观锁总是认为自己在拿数据的时候其他线程会修改--所有在自己修改数据的时候加锁(其他线程只能读取不能修改)
+乐观锁在修改数据的时候如果其他线程修改--此时乐观锁自己修改的数据已经提交到数据库(版本号机制或者带条件的更新)此时其他的线程虽然已经更新数据但是提交会被数据库拒绝
+乐观锁的两种实现方式:版本号机制或者CAS自旋--都会导致ABA问题
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
