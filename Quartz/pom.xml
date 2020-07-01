@@ -85,7 +85,7 @@
 	</pluginRepositories>
 	<properties>    
         <springframework.version>4.1.3.RELEASE</springframework.version><!-- Spring的版本 -->   
-        <quartz.version>2.2.1</quartz.version>                          <!-- Quartz的版本 -->   
+        <quartz.version>2.3.2</quartz.version>                          <!-- Quartz的版本 -->   
     </properties>  
 	<dependencies>
 	<dependency>    
