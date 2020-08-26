@@ -15,3 +15,5 @@ show master logs;
 show master status;
 flush logs;
 show variables like '%datadir%';
+
+mvcc»úÖÆ
