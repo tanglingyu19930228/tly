@@ -1,0 +1,11 @@
+--bulk测试数据
+windows版本
+curl -H "Content-Type: application/json"  -s -XPOST 47.115.160.133:9200/_bulk --data-binary @shakespeare_6.0.json
+Linux版本
+curl -H 'Content-Type: application/json'  -s -XPOST 47.115.160.133:9200/_bulk --data-binary @shakespeare_6.0.json
+
+--match term boolQuery Aggregation的区别
+1.match 全文匹配(只要出现该字段就会搜索出来--有做分词)
+2.term  精确匹配(如果文本做过分词会失效)
+3.boolQuery 多条件查询
+4.Aggregation 聚合查询--可嵌套子聚合
