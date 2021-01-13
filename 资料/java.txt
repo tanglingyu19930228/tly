@@ -1,0 +1,2 @@
+System.getenv()表示获取应用程序环境变量
+System.getProperty()表示获取整个计算机的环境变量
