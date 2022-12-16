@@ -10,7 +10,7 @@
 	<name>Hibernate Sqlite WebApp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<org.springframework.version>4.1.3.RELEASE</org.springframework.version>
+		<org.springframework.version>5.2.20.RELEASE</org.springframework.version>
 		<log4j.version>2.0</log4j.version>
 		<commons.fileupload.version>1.3.1</commons.fileupload.version>
 		<cxf.version>3.0.2</cxf.version>
